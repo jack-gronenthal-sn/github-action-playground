@@ -1,0 +1,15 @@
+name: 'Hello World'
+description: 'A sample GitHub Action for research purposes'
+inputs:
+  who-to-greet: # The ID of the input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  time: # ID of the output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args: # Args get passed into the Docker container. This is passing in who-to-greet from the inputs section.
+    - ${{ inputs.who-to-greet }}
